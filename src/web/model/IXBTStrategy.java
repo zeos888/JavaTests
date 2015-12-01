@@ -78,9 +78,9 @@ public class IXBTStrategy implements Strategy
     protected Document getDocumentJS(int year, int month, int day) throws IOException{
         String url = String.format(URL_FORMAT, year, month, day);
         url = "http://www.ixbt.com/news/2015/11/27/elephone-m3-soc-mediatek-helio-p10-99.html#comments_block";
-        url = "http://www.ixbt.com/cgi/news_comments/comments.pl?action=ajax&sub_option=full_comments_list&option=news&category=news3&id=193224";
+        //url = "http://www.ixbt.com/cgi/news_comments/comments.pl?action=ajax&sub_option=full_comments_list&option=news&category=news3&id=193224";
         WebClient webClient = new WebClient();
-
+        webClient.setJavaScriptEnabled(true);
         HtmlPage htmlPage = webClient.getPage(url);
         //htmlPage.executeJavaScript("http://www.ixbt.com/js/news2/comments/comments.js");
         String pageAsText = htmlPage.getWebResponse().getContentAsString();
